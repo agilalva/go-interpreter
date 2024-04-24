@@ -21,3 +21,15 @@ const (
 	FUNCTION  = "FUNCTION"
 	LET       = "LET"
 )
+
+var keywords = map[string]string{
+	"fn":  FUNCTION,
+	"let": LET,
+}
+
+func LookupIdentifier(identifier string) string {
+	if tok, ok := keywords[identifier]; ok {
+		return tok
+	}
+	return IDENT
+}
