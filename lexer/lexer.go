@@ -128,6 +128,6 @@ func isDigit(ch byte) bool {
 	return ch >= '0' && ch <= '9'
 }
 
-func newToken(t string, l byte) token.Token {
+func newToken(t token.TokenType, l byte) token.Token {
 	return token.Token{Type: t, Literal: string(l)}
 }

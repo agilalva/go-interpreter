@@ -1,7 +1,9 @@
 package token
 
+type TokenType string
+
 type Token struct {
-	Type    string
+	Type    TokenType
 	Literal string
 }
 
@@ -35,7 +37,7 @@ const (
 	NEQ       = "!="
 )
 
-var keywords = map[string]string{
+var keywords = map[string]TokenType{
 	"fn":     FUNCTION,
 	"let":    LET,
 	"true":   TRUE,
@@ -45,7 +47,7 @@ var keywords = map[string]string{
 	"return": RETURN,
 }
 
-func LookupIdentifier(identifier string) string {
+func LookupIdentifier(identifier string) TokenType {
 	if tok, ok := keywords[identifier]; ok {
 		return tok
 	}
